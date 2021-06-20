@@ -14,8 +14,8 @@ Many thanks to my colleague Heidi Pang, because she inspired this project by pos
 It is great to have colleagues like her, pushing ME to improve!
 
 
-PUZZLE EXAMPLE:
----------------
+PUZZLE EXAMPLE, WITH SOLUTION:
+------------------------------
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
 1. The first question with B as the correct answer is:
