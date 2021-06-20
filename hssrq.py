@@ -41,6 +41,13 @@ class HomogeneousSequenceSelfReferentialQuestion:
     """
 
     def __init__(self, func, text, possible_answers, answer_labels=None):
+        """
+        :param func: a function with this signature:
+            all_right_answers: sequence of answer labels assumed correct --> label of correct answer to this question
+        :param text: question text
+        :param possible_answers: possible answers
+        :param answer_labels: corresponding answer labels (defaulting to 'A', 'B', 'C'...)
+        """
         self.nr_possible_answers = len(possible_answers)
         if answer_labels is None:
             answer_labels = get_auto_labels(self.nr_possible_answers)
@@ -51,15 +58,30 @@ class HomogeneousSequenceSelfReferentialQuestion:
         self.options = {pa: al for pa, al in zip(possible_answers, answer_labels)}
 
     def answer(self, all_right_answers):
+        """
+        (try to) answer this question on the assumption that the given sequence of answers to all questions is correct
+        :param all_right_answers: sequence of answer labels
+        :return: correct answer to this question, as an answer label
+        """
         return self.options.get(self.func(all_right_answers))
 
     def get_full_text(self):
+        """
+        :return: full text representing this question and its possible answers
+        """
         sep = '    '
         return f'{self.text}:\n{sep}' \
                f'{sep.join([str(label) + ". " + str(answer) for answer, label in self.options.items()])}'
 
     @staticmethod
     def solve_puzzle(question_sequence, check=True, show=True):
+        """
+        brute-force find all possible solutions - if any - to the logical puzzle made up by the given question sequence
+        :param question_sequence: a sequence of instances of HomogeneousSequenceSelfReferentialQuestion
+        :param check: if true, validate the input before trying to solve
+        :param show: if true, print out both the puzzle description and the solution(s)
+        :return: list of puzzle solutions, each being a sequence of answer labels
+        """
         if check and not all([isinstance(question, HomogeneousSequenceSelfReferentialQuestion)
                               for question in question_sequence]):
             raise ValueError(f'All the list items must be instances of class '
