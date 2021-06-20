@@ -1,19 +1,22 @@
 # heidis_puzzle
 
 
-PROJECT DESCRIPTION
+PROJECT DESCRIPTION:
+--------------------
 Logical representation and brute-force solution for logical puzzles made up of collectively self-referential questions, as in the below example.
-TO DO: additional functionality: automatic creation of such puzzles.
+TO DO: the additional functionality of automatically creating such puzzles.
 
 
-ACKNOWLEDGEMENTS: 
+ACKNOWLEDGEMENTS:
+-----------------
 Many thanks to my colleague Heidi Pang, because she inspired this project by posing the sample puzzle, co-authored an earlier version of this code and, last but not least, managed to teach me something I did not know about Python.
-It is great to have colleagues like her, pushing you to improve!
+It is great to have colleagues like her, pushing ME to improve!
 
 
-EXAMPLE:
+PUZZLE EXAMPLE:
+---------------
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
-========================================================================
+
 1. The first question with B as the correct answer is:
     A. 1    B. 4    C. 3    D. 2
 
@@ -30,10 +33,9 @@ LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
     A. 0    B. 2    C. 3    D. 1
 
 SOLUTION(S)
-========================================================================
+
 --- List of all possible sequences of answers: ---
     1. C,   2. D,   3. B,   4. C,   5. B
 --- End of the list ---
-========================================================================
+
 This puzzle has exactly 1 solution.
-    
