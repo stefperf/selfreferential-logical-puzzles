@@ -1,4 +1,4 @@
-# heidis_puzzle
+# Heidi's puzzle
 
 
 PROJECT DESCRIPTION:
