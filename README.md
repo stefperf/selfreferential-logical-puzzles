@@ -3,8 +3,9 @@
 
 PROJECT DESCRIPTION:
 --------------------
-Logical representation and brute-force solution for logical puzzles made up of collectively self-referential questions, as in the below example.
-TO DO: the additional functionality of automatically creating such puzzles.
+- Logical representation and brute-force solution for logical puzzles made up of collectively self-referential questions, as in the below example.
+- Developed in Python 3.9.1.
+- TO DO: the additional functionality of automatically creating such puzzles.
 
 
 ACKNOWLEDGEMENTS:
