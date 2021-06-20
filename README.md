@@ -11,7 +11,7 @@ PROJECT DESCRIPTION:
 ACKNOWLEDGEMENTS:
 -----------------
 Many thanks to my colleague Heidi Pang, because she inspired this project by posing the sample puzzle, co-authored an earlier version of this code and, last but not least, managed to teach me something I did not know about Python.
-It is great to have colleagues like her, pushing ME to improve!
+It is great to have colleagues like her, pushing me to improve!
 
 
 PUZZLE EXAMPLE, WITH SOLUTION:
