@@ -1,0 +1,75 @@
+# Authors: Heidi Pang, Stefano Perfetti in pair programming.
+#
+# This is the first version of the puzzle solver that we quickly wrote on Sunday 2021-06-13.
+#
+import itertools
+
+
+letters = ['A', 'B', 'C', 'D']
+
+
+def c0(answers):
+    try:
+        number = answers.index('B') + 1
+    except ValueError:
+        return False
+    map = {
+        1: 'A',
+        4: 'B',
+        3: 'C',
+        2: 'D'
+    }
+    return map.get(number, 'not found') == answers[0]
+
+
+def c1(answers):
+    letter = answers[3]
+    map = {
+        'D': 'A',
+        'A': 'B',
+        'B': 'C',
+        'C': 'D'
+    }
+    return map[letter] == answers[1]
+
+
+def c2(answers):
+    letter = answers[0]
+    map = {
+        'D': 'A',
+        'C': 'B',
+        'B': 'C',
+        'A': 'D'
+    }
+    return map[letter] == answers[2]
+
+
+def c3(answers):
+    number_of_ds = sum([1 if answer == 'D' else 0 for answer in answers])
+    map = {
+        3: 'A',
+        2: 'B',
+        1: 'C',
+        0: 'D'
+    }
+    return map.get(number_of_ds, 'not found') == answers[3]
+
+
+def c4(answers):
+    number_of_bs = sum([1 if answer == 'B' else 0 for answer in answers])
+    map = {
+        0: 'A',
+        2: 'B',
+        3: 'C',
+        1: 'D'
+    }
+    return map.get(number_of_bs, 'not found') == answers[4]
+
+
+conditions = [c0, c1, c2, c3, c4]
+n_questions = len(conditions)
+
+
+for answers in itertools.product(*([letters] * n_questions)):
+    if all([c(answers) for c in conditions]):
+        print(answers)
