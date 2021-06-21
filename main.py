@@ -30,9 +30,14 @@ SOLUTION(S)
 This puzzle has exactly 1 solution.
 
 """
+import random
 from hssrq import *
 
 
+print()
+print('=' * 100)
+print('SOLVING THE SAMPLE PUZZLE')
+print('=' * 100)
 question_sequence = [
     FirstAnswerX('B', [1, 4, 3, 2]),
     AnswerToQuestionNr(4, ['D', 'A', 'B', 'C']),
@@ -40,4 +45,15 @@ question_sequence = [
     CountOfAnswersX('D', [3, 2, 1, 0]),
     CountOfAnswersX('B', [0, 2, 3, 1]),
 ]
-HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence)
+HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence, show=True)
+
+for nr_solutions in range(0, 4):
+    print()
+    print('=' * 100)
+    print(f'CREATING A NEW PUZZLE WITH {nr_solutions} SOLUTION{"S" if nr_solutions != 1 else ""}')
+    print('=' * 100)
+    new_question_sequence = HomogeneousSequenceSelfReferentialQuestion.create_puzzle(
+        question_classes=[AnswerToQuestionNr, CountOfAnswersX, CountOfAnswersX, FirstAnswerX, LastAnswerX],
+        nr_possible_answers=4,
+        nr_solutions=nr_solutions
+    )

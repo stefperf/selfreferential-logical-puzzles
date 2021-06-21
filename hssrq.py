@@ -1,5 +1,6 @@
 import itertools
 from helper_tools import *
+import random
 
 
 class HomogeneousSequenceSelfReferentialQuestion:
@@ -73,8 +74,55 @@ class HomogeneousSequenceSelfReferentialQuestion:
         return f'{self.text}:\n{sep}' \
                f'{sep.join([str(label) + ". " + str(answer) for answer, label in self.options.items()])}'
 
+    @classmethod
+    def create_randomly(cls, nr_questions, answer_labels, this_question_index):
+        """
+        abstract factory method building a theoretically admissible question
+        :param nr_questions: nr. of questions in the sequence
+        :param answer_labels: all answer labels
+        :param this_question_index: zero-based index of this question in the question sequence
+        :return: new instance of this class
+        """
+        pass
+
+    @classmethod
+    def create_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        """
+        factory method building a question compatible with a pre-defined sequence of right answers
+        :param all_right_answers: sequence of right answers
+        :param answer_labels: all answer labels
+        :param this_question_index: zero-based index of this question in the question sequence
+        :return: new instance of this class
+        """
+        specifics_dict, right_answer, all_possible_answers = \
+            cls._init_backwards(all_right_answers, answer_labels, this_question_index)
+        wrong_answers = [a for a in all_possible_answers if a != right_answer]
+        random.shuffle(wrong_answers)
+        right_answer_label = all_right_answers[this_question_index]
+        possible_answers = [right_answer if al == right_answer_label else wrong_answers.pop() for al in answer_labels]
+        specifics_dict['possible_answers'] = possible_answers
+        return cls(**specifics_dict)
+
+    @classmethod
+    def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        """
+        abstract method deriving class-specific initialization information from the puzzle solution parameters
+        :param all_right_answers: sequence of right answers
+        :param answer_labels: all answer labels
+        :param this_question_index: zero-based index of this question in the question sequence
+        :return:
+            right_answer,
+            all_possible_answers := list of all conceivable answers,
+            specifics_dict := dict of the specific input parameters needed to init this class
+        """
+        raise NotImplementedError()
+        specifics_dict = None
+        right_answer = None
+        all_possible_answers = None
+        return specifics_dict, right_answer, all_possible_answers
+
     @staticmethod
-    def solve_puzzle(question_sequence, check=True, show=True):
+    def solve_puzzle(question_sequence, check=False, show=False):
         """
         brute-force find all possible solutions - if any - to the logical puzzle made up by the given question sequence
         :param question_sequence: a sequence of instances of HomogeneousSequenceSelfReferentialQuestion
@@ -128,7 +176,39 @@ class HomogeneousSequenceSelfReferentialQuestion:
             else:
                 print(f'This puzzle has {nr_acceptable_answers} possible solutions in total.')
             print()
-        return answer_list
+        return acceptable_answer_lists
+
+    @staticmethod
+    def create_puzzle(question_classes, nr_possible_answers, nr_solutions=1, answer_labels=None, show=False):
+        """
+        try to randomly create a puzzle, without validating whether it is possible or not
+        :param question_classes: list of concrete subclasses of HomogeneousSequenceSelfReferentialQuestion
+        :param nr_possible_answers: nr. of possible answers to each questions
+        :param nr_solutions: nr. of desired solutions
+        :param answer_labels: labels of the answers, optional; defaults to A, B, C...
+        :param show: if True, show the candidate puzzles that have been eliminated
+        :return: the question list of the found puzzle
+        """
+        if answer_labels is None:
+            answer_labels = get_auto_labels(nr_possible_answers)
+        else:
+            assert nr_possible_answers == len(nr_possible_answers)
+        nr_attempts = 0
+        while True:
+            nr_attempts += 1
+            print(f'Attempt nr. {nr_attempts}...')
+            random.shuffle(question_classes)
+            all_right_answers = [random.choice(answer_labels) for _ in range(len(question_classes))]
+            if nr_solutions == 0:
+                question_sequence = [question_class.create_randomly(len(all_right_answers), answer_labels, i)
+                                     for i, question_class in enumerate(question_classes)]
+            else:
+                question_sequence = [question_class.create_backwards(all_right_answers, answer_labels, i)
+                                     for i, question_class in enumerate(question_classes)]
+            solutions = HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence, show=show)
+            if len(solutions) == nr_solutions:
+                HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence, show=True)
+                return question_sequence
 
 
 class AnswerToQuestionNr(HomogeneousSequenceSelfReferentialQuestion):
@@ -139,6 +219,22 @@ class AnswerToQuestionNr(HomogeneousSequenceSelfReferentialQuestion):
             text=f'The answer to Question {question_nr} is'
         )
 
+    @classmethod
+    def create_randomly(cls, nr_questions, answer_labels, this_question_index):
+        return cls(
+            question_nr=random.choice([i for i in range(nr_questions) if i != this_question_index]) + 1,
+            possible_answers=answer_labels
+        )
+
+    @classmethod
+    def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        question_index = random.choice([i for i in range(len(all_right_answers)) if i != this_question_index])
+        question_nr = question_index + 1
+        specifics_dict = dict(question_nr=question_nr)
+        right_answer = all_right_answers[question_index]
+        all_possible_answers = answer_labels
+        return specifics_dict, right_answer, all_possible_answers
+
 
 class CountOfAnswersX(HomogeneousSequenceSelfReferentialQuestion):
     def __init__(self, answer_label_x, possible_answers):
@@ -147,6 +243,21 @@ class CountOfAnswersX(HomogeneousSequenceSelfReferentialQuestion):
             possible_answers=possible_answers,
             text=f'The number of questions which have {answer_label_x} as the correct answer is'
         )
+
+    @classmethod
+    def create_randomly(cls, nr_questions, answer_labels, this_question_index):
+        return cls(
+            answer_label_x=random.choice(answer_labels),
+            possible_answers=random.sample(list(range(nr_questions + 1)), len(answer_labels))
+        )
+
+    @classmethod
+    def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        answer_label_x = random.choice(list(set(all_right_answers)))
+        specifics_dict = dict(answer_label_x=answer_label_x)
+        right_answer = all_right_answers.count(answer_label_x)
+        all_possible_answers = list(range(len(all_right_answers) + 1))
+        return specifics_dict, right_answer, all_possible_answers
 
 
 class FirstAnswerX(HomogeneousSequenceSelfReferentialQuestion):
@@ -157,6 +268,21 @@ class FirstAnswerX(HomogeneousSequenceSelfReferentialQuestion):
             text=f'The first question with {answer_label_x} as the correct answer is'
         )
 
+    @classmethod
+    def create_randomly(cls, nr_questions, answer_labels, this_question_index):
+        return cls(
+            answer_label_x=random.choice(answer_labels),
+            possible_answers=random.sample(list(range(1, nr_questions + 1)), len(answer_labels))
+        )
+
+    @classmethod
+    def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        answer_label_x = random.choice(list(set(all_right_answers)))
+        specifics_dict = dict(answer_label_x=answer_label_x)
+        right_answer = index_in_list(answer_label_x, all_right_answers) + 1
+        all_possible_answers = list(range(1, len(all_right_answers) + 1))
+        return specifics_dict, right_answer, all_possible_answers
+
 
 class LastAnswerX(HomogeneousSequenceSelfReferentialQuestion):
     def __init__(self, answer_label_x, possible_answers):
@@ -165,3 +291,18 @@ class LastAnswerX(HomogeneousSequenceSelfReferentialQuestion):
             possible_answers=possible_answers,
             text=f'The last question with {answer_label_x} as the correct answer is'
         )
+
+    @classmethod
+    def create_randomly(cls, nr_questions, answer_labels, this_question_index):
+        return cls(
+            answer_label_x=random.choice(answer_labels),
+            possible_answers=random.sample(list(range(1, nr_questions + 1)), len(answer_labels))
+        )
+
+    @classmethod
+    def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
+        answer_label_x = random.choice(list(set(all_right_answers)))
+        specifics_dict = dict(answer_label_x=answer_label_x)
+        right_answer = index_in_list(answer_label_x, all_right_answers, direction=-1) + 1
+        all_possible_answers = list(range(1, len(all_right_answers) + 1))
+        return specifics_dict, right_answer, all_possible_answers
