@@ -77,7 +77,8 @@ class HomogeneousSequenceSelfReferentialQuestion:
     @classmethod
     def create_randomly(cls, nr_questions, answer_labels, this_question_index):
         """
-        abstract factory method building a theoretically admissible question
+        Abstract factory method building a theoretically admissible question;
+        implement this method in a concrete subclass to support creating puzzles with no solution.
         :param nr_questions: nr. of questions in the sequence
         :param answer_labels: all answer labels
         :param this_question_index: zero-based index of this question in the question sequence
@@ -106,7 +107,8 @@ class HomogeneousSequenceSelfReferentialQuestion:
     @classmethod
     def _init_backwards(cls, all_right_answers, answer_labels, this_question_index):
         """
-        abstract method deriving class-specific initialization information from the puzzle solution parameters
+        Abstract method deriving class-specific initialization information from the puzzle solution parameters;
+        implement this method in a concrete class to support creating puzzles with solution nr. > 0.
         :param all_right_answers: sequence of right answers
         :param answer_labels: all answer labels
         :param this_question_index: zero-based index of this question in the question sequence
