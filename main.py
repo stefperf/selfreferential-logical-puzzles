@@ -1,8 +1,11 @@
 """
 
-Building a representation of, and then solving a logical puzzle by brute force,
-producing the following output:
+First building a representation of, and then solving the given sample logical puzzle below here.
+Then creating 4 new similar puzzles having, respectively: 0, 1, 2, 3 solutions.
 
+====================================================================================================
+SAMPLE PUZZLE
+====================================================================================================
 
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
