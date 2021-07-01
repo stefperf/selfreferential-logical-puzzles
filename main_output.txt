@@ -35,20 +35,20 @@ Attempt nr. 1...
 
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
-1. The last question with A as the correct answer is:
-    A. 4    B. 1    C. 3    D. 2
+1. The number of questions which have C as the correct answer is:
+    A. 3    B. 2    C. 4    D. 1
 
-2. The number of questions which have C as the correct answer is:
-    A. 0    B. 5    C. 2    D. 4
+2. The last question with B as the correct answer is:
+    A. 2    B. 1    C. 5    D. 4
 
-3. The first question with D as the correct answer is:
-    A. 5    B. 4    C. 1    D. 2
-
-4. The number of questions which have D as the correct answer is:
-    A. 2    B. 1    C. 5    D. 0
-
-5. The answer to Question 2 is:
+3. The answer to Question 1 is:
     A. A    B. B    C. C    D. D
+
+4. The number of questions which have B as the correct answer is:
+    A. 0    B. 1    C. 5    D. 2
+
+5. The first question with C as the correct answer is:
+    A. 4    B. 2    C. 3    D. 5
 
 SOLUTION(S)
 
@@ -65,25 +65,25 @@ Attempt nr. 1...
 
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
-1. The answer to Question 4 is:
-    A. C    B. D    C. A    D. B
+1. The number of questions which have C as the correct answer is:
+    A. 5    B. 2    C. 1    D. 3
 
-2. The number of questions which have C as the correct answer is:
-    A. 4    B. 3    C. 2    D. 5
+2. The last question with D as the correct answer is:
+    A. 4    B. 2    C. 5    D. 3
 
-3. The first question with A as the correct answer is:
-    A. 1    B. 5    C. 2    D. 4
+3. The number of questions which have D as the correct answer is:
+    A. 4    B. 3    C. 1    D. 2
 
-4. The last question with C as the correct answer is:
-    A. 3    B. 2    C. 4    D. 1
+4. The first question with B as the correct answer is:
+    A. 1    B. 4    C. 2    D. 3
 
-5. The number of questions which have C as the correct answer is:
-    A. 2    B. 3    C. 0    D. 5
+5. The answer to Question 2 is:
+    A. B    B. D    C. C    D. A
 
 SOLUTION(S)
 
 --- List of all possible sequences of answers: ---
-    1. A,   2. C,   3. A,   4. C,   5. A
+    1. C,   2. D,   3. D,   4. B,   5. B
 --- End of the list ---
 
 This puzzle has exactly 1 solution.
@@ -94,31 +94,29 @@ CREATING A NEW PUZZLE WITH 2 SOLUTIONS
 ====================================================================================================
 Attempt nr. 1...
 Attempt nr. 2...
-Attempt nr. 3...
-Attempt nr. 4...
 
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
-1. The last question with B as the correct answer is:
-    A. 1    B. 5    C. 3    D. 4
+1. The number of questions which have C as the correct answer is:
+    A. 4    B. 1    C. 2    D. 3
 
-2. The answer to Question 5 is:
-    A. D    B. C    C. B    D. A
+2. The last question with C as the correct answer is:
+    A. 3    B. 5    C. 2    D. 1
 
 3. The number of questions which have B as the correct answer is:
-    A. 5    B. 4    C. 0    D. 3
+    A. 1    B. 2    C. 4    D. 5
 
-4. The first question with B as the correct answer is:
-    A. 5    B. 1    C. 4    D. 3
+4. The answer to Question 1 is:
+    A. D    B. A    C. C    D. B
 
-5. The number of questions which have C as the correct answer is:
-    A. 0    B. 1    C. 4    D. 5
+5. The first question with D as the correct answer is:
+    A. 5    B. 1    C. 3    D. 4
 
 SOLUTION(S)
 
 --- List of all possible sequences of answers: ---
-    1. B,   2. C,   3. B,   4. B,   5. B
-    1. B,   2. C,   3. D,   4. B,   5. B
+    1. B,   2. C,   3. A,   4. D,   5. D
+    1. B,   2. C,   3. B,   4. D,   5. D
 --- End of the list ---
 
 This puzzle has 2 possible solutions in total.
@@ -147,30 +145,31 @@ Attempt nr. 17...
 Attempt nr. 18...
 Attempt nr. 19...
 Attempt nr. 20...
+Attempt nr. 21...
 
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
-1. The last question with C as the correct answer is:
-    A. 4    B. 5    C. 2    D. 3
+1. The last question with B as the correct answer is:
+    A. 1    B. 5    C. 4    D. 2
 
 2. The number of questions which have C as the correct answer is:
-    A. 0    B. 1    C. 5    D. 3
+    A. 3    B. 2    C. 5    D. 1
 
-3. The answer to Question 1 is:
-    A. C    B. B    C. D    D. A
+3. The first question with B as the correct answer is:
+    A. 4    B. 2    C. 1    D. 5
 
-4. The number of questions which have B as the correct answer is:
-    A. 3    B. 2    C. 0    D. 1
+4. The answer to Question 1 is:
+    A. B    B. C    C. D    D. A
 
-5. The first question with A as the correct answer is:
-    A. 5    B. 3    C. 4    D. 2
+5. The number of questions which have B as the correct answer is:
+    A. 1    B. 2    C. 3    D. 5
 
 SOLUTION(S)
 
 --- List of all possible sequences of answers: ---
-    1. B,   2. B,   3. B,   4. A,   5. C
-    1. D,   2. B,   3. C,   4. B,   5. A
-    1. D,   2. B,   3. C,   4. D,   5. A
+    1. B,   2. D,   3. C,   4. A,   5. B
+    1. C,   2. B,   3. B,   4. B,   5. C
+    1. C,   2. D,   3. A,   4. B,   5. A
 --- End of the list ---
 
 This puzzle has 3 possible solutions in total.

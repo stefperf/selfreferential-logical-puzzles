@@ -208,7 +208,8 @@ class HomogeneousSequenceSelfReferentialQuestion:
                 question_sequence = [question_class.create_backwards(all_right_answers, answer_labels, i)
                                      for i, question_class in enumerate(question_classes)]
             solutions = HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence, show=show)
-            if len(solutions) == nr_solutions:
+            unique_questions = set([question.text for question in question_sequence])
+            if len(solutions) == nr_solutions and len(unique_questions) == len(question_sequence):
                 HomogeneousSequenceSelfReferentialQuestion.solve_puzzle(question_sequence, show=True)
                 return question_sequence
 
