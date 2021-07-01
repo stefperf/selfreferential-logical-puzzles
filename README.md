@@ -23,7 +23,7 @@ LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
 1. The first question with B as the correct answer is:
 
-    A. 1 &emps; B. 4     C. 3     D. 2
+    A. 1     B. 4     C. 3     D. 2
 
 2. The answer to Question 4 is:
 
