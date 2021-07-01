@@ -3,7 +3,7 @@
 
 PROJECT DESCRIPTION:
 --------------------
-Functionalities for for logical puzzles made up of collectively self-referential questions (as in the below example):
+Functionalities for logical puzzles made up of collectively self-referential questions (as in the below example):
 - Logical representation
 - Brute-force solution
 - Automated search for a puzzle having the desired characteristics: types and nr. of questions, nr. of possible answers for each question, nr. of solutions (without validating beforehand whether it is feasible to create a puzzle with the chosen set of characteristics)
