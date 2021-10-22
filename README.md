@@ -22,25 +22,25 @@ PUZZLE EXAMPLE, WITH SOLUTION:
 LOGICAL PUZZLE MADE UP BY COLLECTIVELY SELF-REFERENTIAL QUESTIONS
 
 1. The first question with B as the correct answer is:
-
+---
     A. 1     B. 4     C. 3     D. 2
-
+---
 2. The answer to Question 4 is:
-
+---
     A. D     B. A     C. B     D. C
-
+---
 3. The answer to Question 1 is:
-
+---
     A. D     B. C     C. A     D. B
-
+---
 4. The number of questions which have D as the correct answer is:
-
+---
     A. 3     B. 2     C. 1     D. 0
-
+---
 5. The number of questions which have B as the correct answer is:
-
+---
     A. 0     B. 2     C. 3     D. 1
-
+---
 SOLUTION(S)
 
 --- List of all possible sequences of answers: ---
