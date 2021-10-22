@@ -13,7 +13,7 @@ Developed in Python 3.9.1.
 
 ACKNOWLEDGEMENTS:
 -----------------
-Many thanks to my colleague Heidi Pang, because during our free time, she inspired this project by posing the sample puzzle, co-authored an earlier version of this code and, last but not least, managed to teach me something I did not know about Python.
+Many thanks to my colleague Heidi Pang, because during our free time, she inspired this project by posing the sample puzzle, co-authored with me an earlier version of this code in pair programming and, last but not least, managed to teach me something I did not know about Python.
 It is great to have colleagues like her, always pushing me to improve!
 
 
