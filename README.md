@@ -1,4 +1,4 @@
-# Heidi's puzzle
+# Selfreferential logical puzzles
 
 
 PROJECT DESCRIPTION:
